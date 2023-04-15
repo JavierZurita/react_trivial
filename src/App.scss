@@ -1,5 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
+  &__header{
+    
+    h1{
+      padding-top: 50px;
+      height: 100px;
+      font-size: 48px;
+    }
+  }
 }
 
 .App-logo {

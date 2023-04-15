@@ -1,0 +1,25 @@
+.trivia{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__info{
+        width: 70%;
+        margin-bottom: 50px;
+        label{
+            padding-left: 20px;
+        }
+        button{
+            margin-left: 20px;
+        }
+    }
+    &__questions{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        width: 70%;
+        .question{
+            width: 100%;
+        }
+    }
+}

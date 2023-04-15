@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import Answers from "./Answers";
+import "./Trivia.scss";
 
 export default function Trivia () {
 
@@ -11,19 +12,19 @@ export default function Trivia () {
     const handleSubmit = (e) => {
         e.preventDefault();
         setQuestions(null);
-        axios.get(`https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`).then(res => {
+        axios.get(`https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}`).then(res => {
             setQuestions(res.data.results);
-            // console.log(res.data.results);
         })
     }
     return (
         <div className="trivia">
             <div className="trivia__info">
                 <form onSubmit={handleSubmit}>
-                    <label> Insert number of Questions: 
+                    <label><span>Insert number of Questions: </span>  
                         <input type="number" onChange={(e) => setAmount(e.target.value)}/>
                     </label>
-                    <label> Select Difficulty:
+                    <label>
+                        <span>Select Difficulty: </span> 
                         <select onChange={(e) => setDifficulty(e.target.value.toLocaleLowerCase())}>
                             <option>Any Difficulty</option>
                             <option>Easy</option>
@@ -36,7 +37,7 @@ export default function Trivia () {
             </div>
             <div className="trivia__questions">
                 {questions &&  questions.map((question, index) => 
-                   <div key={index}>
+                   <div class="question" key={index}>
                         <h4>{question.question}</h4>
                         <Answers correctAnswer={question.correct_answer} incorrectAnswers={question.incorrect_answers}/>
                    </div>

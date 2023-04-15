@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import "./Answers.scss";
 export default function Answer({correctAnswer, incorrectAnswers}){
 
     const [answers, setAnswers] = useState([]);
@@ -29,13 +29,13 @@ export default function Answer({correctAnswer, incorrectAnswers}){
         }
     }
     return( 
-        <ul className="answers">
+        <div className="answers">
             {answers && answers.map((answer,index) =>
-                <p className={answer === correctAnswer && selectedAnswer!==null ? "correct" :
-                                selectedAnswer !== correctAnswer && selectedAnswer!==null ? "incorrect" : "" }
+                <p className={answer === correctAnswer && selectedAnswer!==null ? "correct answer" :
+                                selectedAnswer !== correctAnswer && selectedAnswer!==null ? "incorrect answer" : "answer" }
                     key={index} onClick={() => handleSelect(answer)}>  {answer}
                 </p>
              )}
-        </ul>
+        </div>
     );
 }
